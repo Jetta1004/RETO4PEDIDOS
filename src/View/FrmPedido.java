@@ -576,6 +576,11 @@ public class FrmPedido extends javax.swing.JFrame {
 
         jButtonEliminarPd.setFont(new java.awt.Font("Verdana", 1, 10)); // NOI18N
         jButtonEliminarPd.setText("ELIMINAR");
+        jButtonEliminarPd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEliminarPdActionPerformed(evt);
+            }
+        });
 
         jTableProductosPd.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1532,6 +1537,37 @@ public class FrmPedido extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Por favor ingrese el codigo del producto a buscar");
         }       
     }//GEN-LAST:event_jButtonBuscarPdActionPerformed
+
+    private void jButtonEliminarPdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarPdActionPerformed
+        // TODO add your handling code here:
+        if (jTextFieldCodigoProductoPd.getText().length() > 0)
+        {
+            String codigoProducto = jTextFieldCodigoProductoPd.getText();
+            int respuesta = JOptionPane.showConfirmDialog(null, "Está seguro que desea eliminar el producto con el codigo " + codigoProducto + "?");
+            //SE DEBE REALIZAR UNA CONFIRMACION CON EL USUARIO QUE ESTE SEGURO DE ELIMINAR
+            //0: SI
+            //1: NO
+            //2: CANCELAR
+            if (respuesta == 0)
+            {
+                boolean eliminar = ctlProducto.eliminar(codigoProducto, listaProducto);
+                if (eliminar)
+                {
+                    JOptionPane.showMessageDialog(null, "El producto fue eliminado satisfactoriamente!!!");
+                } else
+                {
+                    JOptionPane.showMessageDialog(null, "El producto NO ha sido eliminado");
+                }
+            }
+        } else
+        {
+            JOptionPane.showMessageDialog(null, "Por favor digite el codigo del producto que desea eliminar");
+        }
+
+        this.limpiarCamposProducto();
+        this.refrescarTablaProducto();
+    
+    }//GEN-LAST:event_jButtonEliminarPdActionPerformed
 
     public void limpiarCamposCliente() {
         jTextFieldIdClienteCl.setText("");
