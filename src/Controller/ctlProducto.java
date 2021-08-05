@@ -1,6 +1,8 @@
 package Controller;
 
+import Classes.clsCliente;
 import Classes.clsProducto;
+import Model.ModelCliente;
 import Model.modelProducto;
 import java.util.List;
 import java.util.ArrayList;
@@ -68,5 +70,10 @@ public class ctlProducto {
         clsProducto producto = new clsProducto(codigoProducto, nombre, descripcion,
                 cantidad, precioUnitario, proveedor);
         return modelProducto.modificar(producto, listaProducto);    
+    }
+    
+    //METODO ELIMINAR
+    public boolean eliminar(String codigoProducto, List<clsProducto> listaProducto) {
+        return modelProducto.eliminar(codigoProducto, listaProducto);
     }
 }

@@ -33,7 +33,19 @@ public class clsProducto {
         this.cantidadInventario = cantidadInventario;
         this.precioUnitario = precioUnitario;
     }
-
+    
+    //SOBREESCRIBIR
+    @Override
+    public String toString() {
+        return "Codigo Producto:  " + getIdProducto()+ " " +
+                "Nombre:  " + getNombre() + " " +
+                "Descripción:  " + getDescripcion() + " " +
+                "Cantidad " + getCantidadInventario() + " " +
+                "Precio Unitario: " + getPrecioUnitario() + " " +
+                "Proveedor  " + getProveedor() + " ";
+    }
+    
+    
     //METODOS ACCESORES Y MUTADORES
     /**
      * @return the idProducto

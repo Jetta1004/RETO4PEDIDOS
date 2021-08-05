@@ -1492,7 +1492,7 @@ public class FrmPedido extends javax.swing.JFrame {
     private void jButtonModificarPdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModificarPdActionPerformed
         // TODO add your handling code here:
         //POR MEDIO DEL BOTON MODIFICAR, TRAE VALORES Y SE GUARDA NUEVAMENTE
-        if (jTextFieldNumeroDocumentoCl.getText().length() > 0){
+        if (jTextFieldCodigoProductoPd.getText().length() > 0){
             String idProducto = jTextFieldCodigoProductoPd.getText();
             String nombre = jTextFieldNombrePd.getText();
             String descripcion = jTextFieldDescripcionPd.getText();
@@ -1500,11 +1500,11 @@ public class FrmPedido extends javax.swing.JFrame {
             int precioUnitario = Integer.parseInt(jTextFieldPrecioUnitarioPd.getText());
             int proveedor = Integer.parseInt(jTextFieldProveedorPd.getText());
             //SE INVOCA LA CAPA CONTROLADORA PARA REALIZAR LA CREACION DE CADA PRODUCTO
-            boolean modificar2 = ctlProducto.crear(idProducto, nombre, descripcion,
+            boolean modificar2 = ctlProducto.modificar(idProducto, nombre, descripcion,
                 cantidad, precioUnitario, proveedor, listaProducto);
             if (modificar2)
             {
-                JOptionPane.showMessageDialog(null, "El producto " + nombre + " ha sido creado");
+                JOptionPane.showMessageDialog(null, "El producto " + nombre + " ha sido modificado");
                 limpiarCamposProducto();
                 refrescarTablaProducto();
             }else {

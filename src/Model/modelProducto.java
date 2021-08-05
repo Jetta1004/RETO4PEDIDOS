@@ -1,5 +1,6 @@
 package Model;
 
+import Classes.clsCliente;
 import Classes.clsProducto;
 import java.util.List;
 import java.util.ArrayList;
@@ -49,7 +50,7 @@ public class modelProducto {
         for (clsProducto producto : listaProducto)
         {
             //SI ENCUENTRA EL CLIENTE A ACTUALIZAR, SOBREESCRIBE TODOS SUS ATRIBUTOS
-            if (productoModificar.getIdProducto().equals(productoModificar.getIdProducto()))
+            if (producto.getIdProducto().equals(productoModificar.getIdProducto()))
             {
                 //ESTO SE REALIZA A TRAVEZ DE LOS METODOS MUTADORES DE PRODUCTO 
                 producto.setIdProducto(productoModificar.getIdProducto());
@@ -58,6 +59,22 @@ public class modelProducto {
                 producto.setCantidadInventario(productoModificar.getCantidadInventario());
                 producto.setPrecioUnitario(productoModificar.getPrecioUnitario());
                 producto.setProveedor(productoModificar.getProveedor());                
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    //ELIMINAR
+    public static boolean eliminar(String codigoProducto, List<clsProducto> listaProducto) {
+        //Recorremos lista de los clientes para buscar la cédula (id) indicada por parte del usuario.
+        for (clsProducto producto : listaProducto)
+        {
+            if (producto.getIdProducto().equals(codigoProducto))
+            {
+                //SE ELIMINA EL CLIENTE ENCONTRADO
+                listaProducto.remove(producto);
+
                 return true;
             }
         }
