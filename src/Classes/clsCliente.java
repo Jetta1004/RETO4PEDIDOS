@@ -25,19 +25,33 @@ public class clsCliente extends clsPersona {
         this.fidelizacion = fidelizacion;
     }
 
+    //METODO CONSTRUCTOR BD PARA PRUEBA
+    public clsCliente(String idCliente, String nombre, String tipoDocumento, String numeroDocumento,
+            String direccion, String ciudad, String departamento,
+            String telefono, String email, String fechaNacimiento) {
+        super(tipoDocumento, numeroDocumento, nombre, direccion, ciudad, departamento, telefono, email);
+        this.idCliente = idCliente;
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
+    public clsCliente() {
+        throw new UnsupportedOperationException(); 
+
+      
+       
     //SOBREESCRIBIR
     @Override
     public String toString() {
-        return "Id Cliente:  " + getIdCliente() + " " +
-                "Tipo Documento:  " + getTipoDocumento() + " " +
-                "Numero Documento:  " + super.getNumeroDocumento()+ " " +
-                "Nombre:  " + super.getNombre() + " " +
-                "Direccion:  " + super.getDireccion() + " " +
-                "Ciudad:  " + super.getCiudad()+ " " +
-                "Departamento:  " + super.getDepartamento()+ " " +
-                "Telefono:  " + super.getTelefono()+ " "+
-                "Email:  " + super.getEmail () + " " +
-                "Fidelización:  " + isFidelizacion() + " ";
+        return "Id Cliente:  " + getIdCliente() + " "
+                + "Tipo Documento:  " + getTipoDocumento() + " "
+                + "Numero Documento:  " + super.getNumeroDocumento() + " "
+                + "Nombre:  " + super.getNombre() + " "
+                + "Direccion:  " + super.getDireccion() + " "
+                + "Ciudad:  " + super.getCiudad() + " "
+                + "Departamento:  " + super.getDepartamento() + " "
+                + "Telefono:  " + super.getTelefono() + " "
+                + "Email:  " + super.getEmail() + " "
+                + "Fidelización:  " + isFidelizacion() + " ";
     }
 
     //METODOS ACCESORES Y MUTADORES
